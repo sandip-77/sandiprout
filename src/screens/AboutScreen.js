@@ -123,7 +123,7 @@ const AboutScreen = () => {
                                     <ProgressBar skillName='material-UI' percentage='85%'/>
                                     <ProgressBar skillName='BOOTSTRAP' percentage='90%'/>
                                     <ProgressBar skillName='mongoDB' percentage='80%'/>
-                                    <ProgressBar skillName='NODE/EXPRESS' percentage='75%'/>
+                                    <ProgressBar skillName='NODE/EXPRESS' percentage='70%'/>
                                 </Box>
                                 <Box className={classes.buttons}>
                                 <ButtonComponent link='/resume' text1='res.send' text2="resume"/>
