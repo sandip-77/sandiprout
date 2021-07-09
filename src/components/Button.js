@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     boldtext: {
         fontWeight:900,
         fontSize: '13px',
-        lineHeight: '23px',
     }
 }))
 

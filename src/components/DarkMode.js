@@ -50,10 +50,6 @@ const useStyles = makeStyles((theme) => ({
 const IOSSwitch = ()=> {
 
     const { dispatch } = useContext(ThemeContext)
-    const d_theme = useContext(ThemeContext)
-    const darkMode = d_theme.state.darkMode
-
-    console.log(darkMode);
 
     const body = document.body;
     const lightTheme = "light";
@@ -74,7 +70,6 @@ const IOSSwitch = ()=> {
 
 
     const [ischeked, setIschecked] = useState({checked : checkBoxChecked})
-    console.log(ischeked.checked);
 
     const switchTheme = (e) => {
         if (e.target.checked) {

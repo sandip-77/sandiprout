@@ -4,7 +4,6 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-      /* font-family: 'Nunito'; */
       -moz-osx-font-smoothing: grayscale;
 }
 
@@ -12,49 +11,6 @@ body {
   --black: #121212;
   --white: rgba(255, 255, 255, 0.87)
 }
-
-/* body{
-  color: white!important;
-  background: #121212;
-}
-
-#TopBar{
-    position:fixed !important;
-    right: 0;
-    top:0;
-    color: inherit;
-    box-shadow: 0 0 0 1px !important;
-    font-family: 'Nunito';
-    background-color:  #121212 !important;
-} */
-
-/* .inputField{
-  background: white;
-  border: 1px solid white;
-  border-radius: 4px !important;
-  padding-left: 8px !important;
-  width:80% !important;
-  margin-top:15px !important;
-  color: inherit !important
-} */
-/* 
-.messageField{
-  border: 1px solid white;
-  border-radius: 4px;
-  padding-left: 8px;
-  width: 80%;
-  margin-top: 15px;
-  font-family: inherit;
-  font-size: 15px;
-  padding-top: 2px;
-  background: inherit;
-  color: inherit;
-}
-
-.messageField:focus{
-  outline: none;
-} */
-
 
 body {
   font-family: "Ubuntu", sans-serif;
