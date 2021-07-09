@@ -43,7 +43,9 @@ export default function AdvancedImageList() {
               position="top"
               actionIcon={
                 <IconButton aria-label={`page ${item.title}`} className={classes.icon}>
+                 <a rel="noreferrer" target="_blank" href={item.link} className='link'>
                   <PageviewOutlined />
+                  </a>
                 </IconButton>
               }
               actionPosition="left"

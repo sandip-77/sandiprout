@@ -6,6 +6,7 @@ import AboutScreen from './screens/AboutScreen';
 import ContactScreen from './screens/ContactScreen';
 import ThankYou from './screens/ThankYou';
 import ProjectScreen from './screens/ProjectScreen';
+import SingleProject from './screens/SingleProject';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/contact"> <ContactScreen/> </Route>
         <Route path="/message"> <ThankYou/> </Route>
         <Route path="/projects"> <ProjectScreen/> </Route>
+        <Route path="/project/ecom_app"> <SingleProject/> </Route>
       </Switch>
     </Router>
     </div>
