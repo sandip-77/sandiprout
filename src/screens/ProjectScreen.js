@@ -59,7 +59,7 @@ const ProjectScreen = () => {
             </Container>
             <Box className={classes.buttons}>
                 <ButtonComponent link='/resume' text1='res.send' text2="resume"/>
-                <ButtonComponent link='/projects' text1='.redirect' text2="'/work'"/>
+                <ButtonComponent link='/contact' text1='.redirect' text2="'/contact'"/>
             </Box>
         </div>
     )
