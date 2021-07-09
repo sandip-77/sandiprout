@@ -83,6 +83,7 @@ const IOSSwitch = ()=> {
         dispatch({type:"DARKMODE"})
         body.classList.replace(lightTheme, darkTheme);
         localStorage.setItem("theme", "dark");
+        localStorage.setItem("darkMode", "on")
         theme = lightTheme;
         } else {
             setIschecked({[e.target.name]: false})
@@ -91,6 +92,7 @@ const IOSSwitch = ()=> {
         localStorage.setItem("theme", "light");
         theme = darkTheme;
         dispatch({type: "LIGHTMODE"})
+        localStorage.setItem("darkMode", "off")
         localStorage.setItem("checked", e.target.checked)
         }
     };
@@ -101,7 +103,7 @@ const IOSSwitch = ()=> {
     <Switch
       focusVisibleClassName={classes.focusVisible}
       disableRipple
-      checked={ischeked.checked ? ischeked.checked : false}
+      checked={ischeked.checked}
       inputProps= {{"aria-label": 'checkbox'}}
       name='checked'
       onChange={switchTheme}
