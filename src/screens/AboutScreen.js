@@ -2,7 +2,7 @@
 import { Box, Container } from '@material-ui/core';
 import { Grid, makeStyles } from '@material-ui/core'
 import React, { useContext } from 'react'
-import ButtonComponent from '../components/Button';
+import {ButtonComponent, ResumeButton} from '../components/Button';
 import ProgressBar from '../components/ProgressBar';
 import { ThemeContext } from '../ThemeContext';
 
@@ -162,7 +162,7 @@ const AboutScreen = () => {
                                     <ProgressBar skillName='NODE/EXPRESS' percentage='70%'/>
                                 </Box>
                                 <Box className={classes.buttons}>
-                                    <ButtonComponent link='/resume' text1='res.send' text2="resume"/>
+                                    <ResumeButton/>
                                     <ButtonComponent link='/projects' text1='.redirect' text2="'/work'"/>
                                 </Box>
                             </Box>

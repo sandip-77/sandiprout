@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 import { Box, Container, IconButton, ImageList, ImageListItem, ImageListItemBar } from '@material-ui/core';
 import { Grid, makeStyles } from '@material-ui/core'
-import ButtonComponent from '../components/Button';
+import {ButtonComponent} from '../components/Button';
 import ProgressBar from '../components/ProgressBar';
 import { ThemeContext } from '../ThemeContext';
 import { PageviewOutlined } from '@material-ui/icons';

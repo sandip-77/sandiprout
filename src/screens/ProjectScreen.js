@@ -1,7 +1,7 @@
 import { Box, Container } from '@material-ui/core';
 import { makeStyles, Typography } from '@material-ui/core';
 import React, { useContext, useState } from 'react';
-import ButtonComponent from '../components/Button';
+import {ButtonComponent, ResumeButton} from '../components/Button';
 import AdvancedImageList from '../components/ImageList';
 import { ThemeContext } from '../ThemeContext';
 import  {Alert, AlertTitle} from '@material-ui/lab';
@@ -81,7 +81,7 @@ const ProjectScreen = () => {
                 <AdvancedImageList/>
             </Container>
             <Box className={classes.buttons}>
-                <ButtonComponent link='/resume' text1='res.send' text2="resume"/>
+                <ResumeButton/>
                 <ButtonComponent link='/contact' text1='.redirect' text2="'/contact'"/>
             </Box>
         </div>

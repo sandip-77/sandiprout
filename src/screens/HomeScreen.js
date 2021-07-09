@@ -1,6 +1,6 @@
 import { Box, Container, Grid, makeStyles } from '@material-ui/core'
 import React, { useContext } from 'react'
-import ButtonComponent from '../components/Button';
+import {ButtonComponent, ResumeButton} from '../components/Button';
 import { ThemeContext } from '../ThemeContext';
 const HomeScreen = () => {
     const useStyles = makeStyles((theme) => ({
@@ -120,7 +120,7 @@ const HomeScreen = () => {
                                 <p>An emerging full stack developer with realtively high frontend skills.</p>  
                             </Box>
                             <Box className={classes.buttons}>
-                                <ButtonComponent link='/resume' text1='res.send' text2="resume"/>
+                            <ResumeButton/>
                                 <ButtonComponent link='/about' text1='.redirect' text2="'/about'"/>                                
                             </Box>
                         </Box>

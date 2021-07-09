@@ -1,6 +1,6 @@
 import { Box, makeStyles, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
-import ButtonComponent from '../components/Button';
+import {ButtonComponent} from '../components/Button';
 import ConfettiExplosion from '@reonomy/react-confetti-explosion';
 import { ThemeContext } from '../ThemeContext';
 
