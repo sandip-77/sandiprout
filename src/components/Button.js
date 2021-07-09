@@ -14,10 +14,10 @@ const ButtonComponent = ({text1, text2, link, type, disabled}) => {
             backgroundColor:"#264067",
             color: "#fff",
             opacity:1,
-            marginRight:15,
+            margin:'0px 7px',
             fontFamily:'inherit',
             [theme.breakpoints.up('sm')]: {
-                marginRight: 30
+                margin: '0 15px'
             },
             '&:hover': {
                 backgroundColor: "#264067e0",

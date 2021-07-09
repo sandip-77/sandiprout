@@ -1,8 +1,7 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import { Box, Container, Grid, makeStyles } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
 import ButtonComponent from '../components/Button';
+import { ThemeContext } from '../ThemeContext';
 const HomeScreen = () => {
     const useStyles = makeStyles((theme) => ({
 
@@ -27,9 +26,19 @@ const HomeScreen = () => {
         }
           
         },
+        rootDark: {
+            flexGrow: 1,
+            marginTop:80,
+            color:'rgba(255, 255, 255, 0.87)',
+            [theme.breakpoints.up('sm')]: {
+              marginTop:150
+          }
+            
+          },
         hello: {
             color:'#fff',
             backgroundColor: '#264067',
+            marginBottom: 10,
             fontSize: '18px',
             lineHeight: '22px',
             padding: '10px 30px',
@@ -40,6 +49,7 @@ const HomeScreen = () => {
             letterSpacing: '-0.54px'
         },
         name : {
+          color:'#264067',
             fontSize:'49px',
             fontWeight: 900,
             letterSpacing:'0.03em',
@@ -47,6 +57,22 @@ const HomeScreen = () => {
             marginTop: 25
         },
         desc: {
+          color:'#264067',
+            fontSize:'22px',
+            lineHeight: '30px',
+            letterSpacing: '0.005em',
+            fontWeight: 300
+        },
+        nameDark : {
+            color:"rgba(255, 255, 255, 0.87)",
+            fontSize:'49px',
+            fontWeight: 900,
+            letterSpacing:'0.03em',
+            lineHeight: '57px',
+            marginTop: 25
+        },
+        descDark: {
+            color:'rgba(255, 255, 255, 0.87)',
             fontSize:'22px',
             lineHeight: '30px',
             letterSpacing: '0.005em',
@@ -72,18 +98,23 @@ const HomeScreen = () => {
         }
       }));
       const classes = useStyles();
+      
+      const d_theme = useContext(ThemeContext)
+      const darkMode = d_theme.state.darkMode
+      const theme = localStorage.getItem('theme');
+
     return (
-        <div className={classes.root}>
+        <div className={ darkMode ? classes.rootDark : classes.root }>
             <Grid container spacing={3}>
                 <Grid className={classes.item1} alignItems='center'  container item xs={12} sm={6}>
                     <Container maxWidth="xs">
                         <Box>
                                 <span className={classes.hello}>HELLO THERE</span>
-                            <Box mt={5} className={classes.name}>
+                            <Box mt={5} className={darkMode || theme === 'dark' ? classes.nameDark : classes.name}>
                                 <p style={{opacity:'0.5'}}>I AM</p>
                                 <p>SANDIP ROUT.</p>
                             </Box>
-                            <Box mt={4} className={classes.desc}>
+                            <Box mt={4} className={darkMode || theme ==='dark'? classes.descDark : classes.desc}>
                                 <p>An emerging full stack developer with realtively high frontend skills.</p>  
                             </Box>
                             <Box className={classes.buttons}>
@@ -93,7 +124,7 @@ const HomeScreen = () => {
                         </Box>
                     </Container>
                 </Grid>
-                <Grid className={classes.item2} alignItems='center' justify='center' container item xs={12} sm={6}>
+                <Grid className={classes.item2} alignItems='center' justifyContent='center' container item xs={12} sm={6}>
                     <img className={classes.image} src="/images/home-right.png" alt="home-img" />
                 </Grid>
             </Grid>

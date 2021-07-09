@@ -1,21 +1,22 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import { Button } from '@material-ui/core';
 import { Input, TextareaAutosize } from '@material-ui/core';
 import { Box, Container, Grid, makeStyles } from '@material-ui/core'
-import React from 'react';
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../ThemeContext';
 const ContactScreen = () => {
-
-    const [isSubmitted, setIsSubmmitted] = useState(false);
-    const history = useHistory()
 
     const useStyles = makeStyles((theme) => ({
         root: {
             flexGrow: 1,
             marginTop:90,
             color:'#264067',
+            [theme.breakpoints.up('sm')]: {
+              marginTop:140
+          }},
+          rootDark: {
+            flexGrow: 1,
+            marginTop:90,
+            color:'rgba(255, 255, 255, 0.87)',
             [theme.breakpoints.up('sm')]: {
               marginTop:140
           }},
@@ -61,7 +62,16 @@ const ContactScreen = () => {
                 }
             },
             input: {
+                color:"#264067",
                 border: "1px solid #264067",
+                borderRadius: "4px",
+                paddingLeft: 8,
+                width:'80%',
+                marginTop:15
+            },
+            inputDark: {
+                color:"rgba(255, 255, 255, 0.87)",
+                border: "1px solid rgba(255, 255, 255, 0.87)",
                 borderRadius: "4px",
                 paddingLeft: 8,
                 width:'80%',
@@ -75,7 +85,25 @@ const ContactScreen = () => {
                 marginTop:15,
                 fontFamily :'inherit',
                 fontSize:'15px',
-                paddingTop:2
+                paddingTop:2,
+                '&:focus':{
+                    outline:'none'
+                }
+            },
+            messageDark: {
+                backgroundColor:"#121212",
+                color: "rgba(255, 255, 255, 0.87)",
+                border: "1px solid rgba(255, 255, 255, 0.87)",
+                borderRadius: "4px",
+                paddingLeft: 8,
+                width:'80%',
+                marginTop:15,
+                fontFamily :'inherit',
+                fontSize:'15px',
+                paddingTop:2,
+                '&:focus':{
+                    outline:'none'
+                }
             },
             formStyle:{
                 display:'flex', 
@@ -93,11 +121,7 @@ const ContactScreen = () => {
                 backgroundColor:"#264067",
                 color: "#fff",
                 opacity:1,
-                // marginRight:25,
                 fontFamily:'inherit',
-                [theme.breakpoints.up('sm')]: {
-                    // marginRight: 30
-                },
                 '&:hover': {
                     backgroundColor: "#264067e0",
                  },
@@ -111,16 +135,14 @@ const ContactScreen = () => {
     }))
 
 
-    // useEffect(() => {
-    //     if(isSubmitted){
-    //         history.push('/message')
-    //     }
-    // },[])
-
-
     const classes = useStyles()
+
+
+    const d_theme = useContext(ThemeContext)
+      const darkMode = d_theme.state.darkMode
+      const theme = localStorage.getItem('theme');
     return (
-        <div className={classes.root}>
+        <div className={darkMode || theme === 'dark' ? classes.rootDark : classes.root}>
             <Grid container spacing={3}>
                 <Grid className={classes.switchVisibility} item container xs={12} md={5}>
                     <Container maxWidth='xs'>
@@ -137,10 +159,10 @@ const ContactScreen = () => {
                         <form
                         className={classes.formStyle} action="https://formsubmit.co/sandip.rout901@gmail.com" method="POST">
                             <input type="hidden" name="_next" value="http://localhost:3000/message"></input>
-                            <Input autoFocus placeholder='Your Name' type='text' name='name' required className={classes.input}  disableUnderline  />
-                            <Input placeholder='Your Email' type='email' name='email' required className={classes.input}  disableUnderline  />
-                            <Input placeholder='Subject' type='text' name='Subject' required className={classes.input}  disableUnderline  />
-                            <TextareaAutosize className={classes.message} required minRows={10} name='message' placeholder="Message" />
+                            <Input autoFocus placeholder='Your Name' type='text' name='name' required className={darkMode || theme === 'dark' ? classes.inputDark : classes.input}  disableUnderline  />
+                            <Input placeholder='Your Email' type='email' name='email' required className={darkMode || theme === 'dark' ? classes.inputDark : classes.input}  disableUnderline  />
+                            <Input placeholder='Subject' type='text' name='Subject' required className={darkMode || theme === 'dark' ? classes.inputDark : classes.input}  disableUnderline  />
+                            <TextareaAutosize className={darkMode || theme === 'dark' ? classes.messageDark : classes.message} required minRows={10} name='message' placeholder="Message" />
                             <Box style={{marginTop: 30}}>
                                 <Button className={classes.button} type='submit'>
                                     res.send(<span className={classes.boldtext}>message</span>)

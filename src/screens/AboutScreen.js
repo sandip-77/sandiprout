@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { Box, Container } from '@material-ui/core';
 import { Grid, makeStyles } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
 import ButtonComponent from '../components/Button';
 import ProgressBar from '../components/ProgressBar';
+import { ThemeContext } from '../ThemeContext';
 
 const AboutScreen = () => {
 
@@ -12,6 +13,13 @@ const AboutScreen = () => {
             flexGrow: 1,
             marginTop:90,
             color:'#264067',
+            [theme.breakpoints.up('sm')]: {
+              marginTop:140
+          }},
+          rootDark: {
+            flexGrow: 1,
+            marginTop:90,
+            color:'rgba(255, 255, 255, 0.87)',
             [theme.breakpoints.up('sm')]: {
               marginTop:140
           }},
@@ -26,6 +34,17 @@ const AboutScreen = () => {
                 borderRight: '1px solid #264067',
             }
           },
+          photoContainerDark: {
+            borderRight: 'none' ,
+            display: 'flex',
+            justifyContent: 'center',
+                padding: '0 24px',
+            [theme.breakpoints.up('md')]:{
+                padding: '40px 90px 30px 70px',
+                position:'fixed',
+                borderRight: '1px solid rgba(255, 255, 255, 0.87)',
+            }
+          },
           textContainer:{
             //   position: 'absolute'
           },
@@ -34,6 +53,16 @@ const AboutScreen = () => {
             width: 300,
             objectFit:'contain',
             border: '10px solid #26406726',
+            borderRadius:'8px',
+            [theme.breakpoints.up('sm')]: {
+                width: 400,
+            }
+        },
+        photoDark:{
+            // position:'static',
+            width: 300,
+            objectFit:'contain',
+            border: '10px solid rgba(255, 255, 255, 0.21)',
             borderRadius:'8px',
             [theme.breakpoints.up('sm')]: {
                 width: 400,
@@ -82,23 +111,30 @@ const AboutScreen = () => {
         },
         buttons :{
             marginTop:"30px",
+            display:'flex',
+            justifyContent:'center',
         [theme.breakpoints.up('sm')]: {
             marginTop:80,
+            display : 'block'
         }
         }
 
     }))
 
+    const d_theme = useContext(ThemeContext)
+    const darkMode = d_theme.state.darkMode
+    const theme = localStorage.getItem('theme');
+
     
 
     const classes = useStyles();
     return (
-        <div className={classes.root}>
+        <div className={darkMode || theme === 'dark' ? classes.rootDark : classes.root}>
             <Grid container spacing={3}>
-                <Grid item  container xs={12} md={4}>
+                <Grid item container xs={12} md={4}>
                     <Container >
-                        <Container className={classes.photoContainer} maxWidth='xs'>
-                                <img className={classes.photo} src="/images/sandiprout.jpg" alt="ProfileImage" />
+                        <Container className={ darkMode || theme === 'dark' ? classes.photoContainerDark : classes.photoContainer } maxWidth='xs'>
+                                <img className={darkMode || theme === 'dark' ? classes.photoDark : classes.photo} src="/images/sandiprout.jpg" alt="ProfileImage" />
                         </Container>
                     </Container>
                 </Grid> 
@@ -126,8 +162,8 @@ const AboutScreen = () => {
                                     <ProgressBar skillName='NODE/EXPRESS' percentage='70%'/>
                                 </Box>
                                 <Box className={classes.buttons}>
-                                <ButtonComponent link='/resume' text1='res.send' text2="resume"/>
-                                <ButtonComponent link='/work' text1='.redirect' text2="'/work'"/>
+                                    <ButtonComponent link='/resume' text1='res.send' text2="resume"/>
+                                    <ButtonComponent link='/projects' text1='.redirect' text2="'/work'"/>
                                 </Box>
                             </Box>
                     </Container>

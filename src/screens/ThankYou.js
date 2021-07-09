@@ -1,7 +1,8 @@
 import { Box, makeStyles, Typography } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
 import ButtonComponent from '../components/Button';
 import ConfettiExplosion from '@reonomy/react-confetti-explosion';
+import { ThemeContext } from '../ThemeContext';
 
 const ThankYou = () => {
 
@@ -10,6 +11,19 @@ const ThankYou = () => {
             marginTop:80,
             height:'85vh',
             color:'#264067',
+            textAlign:'center',
+            display:'flex',
+            alignItems:'center',
+            flexDirection: 'column',
+            justifyContent:'center',
+          [theme.breakpoints.up('sm')]: {
+            marginTop:80,
+        }
+        },
+        rootDark:{
+            marginTop:80,
+            height:'85vh',
+            color:'rgba(255, 255, 255, 0.87)',
             textAlign:'center',
             display:'flex',
             alignItems:'center',
@@ -51,8 +65,14 @@ const ThankYou = () => {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
     const classes = useStyles()
+
+
+
+    const d_theme = useContext(ThemeContext)
+      const darkMode = d_theme.state.darkMode
+      const theme = localStorage.getItem('theme');
     return (
-        <div className={classes.root}>
+        <div className={darkMode || theme === 'dark' ? classes.rootDark : classes.root}>
         <ConfettiExplosion
             force= {0.9}
             duration= {3000}
@@ -60,19 +80,6 @@ const ThankYou = () => {
             floorHeight = {viewportHeight}
             floorWidth= {viewportWidth}
         />
-        {/* <Confetti
-            drawShape={ctx => {
-            ctx.beginPath()
-            for(let i = 0; i < 22; i++) {
-            const angle = 0.35 * i
-            const x = (0.2 + (1.5 * angle)) * Math.cos(angle)
-            const y = (0.2 + (1.5 * angle)) * Math.sin(angle)
-            ctx.lineTo(x, y)
-            }
-            ctx.stroke()
-            ctx.closePath()
-        }}
-        /> */}
             <Typography className={classes.text} variant='h3'>
                 Message Sent!!
             </Typography>
@@ -80,7 +87,7 @@ const ThankYou = () => {
                 Thank you for your Message. <br />I will respond you within 24 Hrs.
             </Typography>
             <Box className={classes.button} mt={4}>
-                <ButtonComponent link='/' text1='res.redirect' text2="'/'"/>
+                <ButtonComponent link='/' text1='res.redirect' text2="'/home'"/>
             </Box>
         </div>
     )

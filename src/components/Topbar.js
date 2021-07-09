@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -10,6 +9,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { Link } from 'react-router-dom';
 import { Container } from '@material-ui/core';
+import {IOSSwitch} from '../components/DarkMode';
+import { ThemeContext } from '../ThemeContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,12 +22,25 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0 0 0 1px',
     fontFamily: 'Nunito'
   },
+  rootDark: {
+    position: "fixed",
+    right: 0,
+    top:0,
+    backgroundColor:'#121212',
+    color:"rgba(255, 255, 255, 0.87)",
+    boxShadow: '0 0 0 1px',
+    fontFamily: 'Nunito'
+  },
   flexnav:{
     display: 'flex',
     justifyContent:'space-between'
   },
   color: {
     color:"#264067",
+    marginRight: 20
+  },
+  colorDark: {
+    color:"rgba(255, 255, 255, 0.87)",
     marginRight: 20
   },
   heading:{
@@ -118,7 +132,7 @@ export default function PrimarySearchAppBar() {
 
       <MenuItem
         onClick={handleMobileMenuClose}>
-        <Link className='link' to='/work'>
+        <Link className='link' to='/projects'>
           <p>.work()</p>
         </Link>
       </MenuItem>
@@ -147,9 +161,17 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
+
+
+
+    const d_theme = useContext(ThemeContext)
+    const darkMode = d_theme.state.darkMode
+
+    const theme = localStorage.getItem('theme');
+
   return (
     <div className={classes.grow}>
-      <AppBar className={classes.root}  position="static">
+      <AppBar className={darkMode || theme==='dark' ? classes.rootDark : classes.root}  position="static">
         <Container className={classes.flexnav} maxWidth='lg'>
         <Link style={{textDecoration:'none', color:"inherit"}}  to='/' >
           <p className={classes.heading}>
@@ -162,7 +184,7 @@ export default function PrimarySearchAppBar() {
                 .about()
             </p>
           </Link>
-          <Link className='link' to='/work' >
+          <Link className='link' to='/projects' >
             <p className={classes.font} >
                 .work()
             </p>
@@ -175,15 +197,16 @@ export default function PrimarySearchAppBar() {
           </Link>
 
             <a className='link' rel="noreferrer" target='_blank' href='https://github.com/sandip-77'>
-                <IconButton className={classes.color}>
+                <IconButton className={darkMode || theme==='dark' ? classes.colorDark : classes.color}>
                     <GitHubIcon/> 
                 </IconButton>
             </a>
            <a className='link' rel="noreferrer" target='_blank' href='https://www.linkedin.com/in/sandip-rout-5264421ba/'>
-           <IconButton className={classes.color}>
-              <LinkedInIcon/> 
-           </IconButton>
+                <IconButton className={darkMode || theme==='dark' ? classes.colorDark : classes.color}>
+                    <LinkedInIcon/> 
+                </IconButton>
            </a>
+           <IOSSwitch/>
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
