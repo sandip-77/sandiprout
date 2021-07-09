@@ -110,11 +110,11 @@ const AboutScreen = () => {
             },
         },
         buttons :{
-            marginTop:"30px",
+            margin:"30px 0",
             display:'flex',
             justifyContent:'center',
         [theme.breakpoints.up('sm')]: {
-            marginTop:80,
+            margin:"80px 0 50px 0",
             display : 'block'
         }
         }

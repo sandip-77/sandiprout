@@ -67,6 +67,8 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionMobile: {
     display: 'flex',
+    justifyContent:'center',
+    alignItems:'center',
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
@@ -93,7 +95,6 @@ export default function PrimarySearchAppBar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -166,7 +167,6 @@ export default function PrimarySearchAppBar() {
 
     const d_theme = useContext(ThemeContext)
     const darkMode = d_theme.state.darkMode
-
     const theme = localStorage.getItem('theme');
 
   return (
@@ -209,6 +209,7 @@ export default function PrimarySearchAppBar() {
            <IOSSwitch/>
           </div>
           <div className={classes.sectionMobile}>
+            <IOSSwitch/>
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
