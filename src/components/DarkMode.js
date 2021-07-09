@@ -101,7 +101,7 @@ const IOSSwitch = ()=> {
     <Switch
       focusVisibleClassName={classes.focusVisible}
       disableRipple
-      checked={ischeked.checked }
+      checked={ischeked.checked ? ischeked.checked : false}
       inputProps= {{"aria-label": 'checkbox'}}
       name='checked'
       onChange={switchTheme}
