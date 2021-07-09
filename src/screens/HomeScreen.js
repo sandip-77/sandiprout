@@ -92,8 +92,10 @@ const HomeScreen = () => {
         },
         buttons: {
             marginTop:"30px",
+            marginBottom: 30,
             [theme.breakpoints.up('sm')]: {
                 marginTop:80,
+                marginBottom:0
             }
         }
       }));
