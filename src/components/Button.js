@@ -40,7 +40,7 @@ const ButtonComponent = ({text1, text2, link, type, disabled}) => {
 const ResumeButton = () => {
     const classes = useStyles()
     return(
-        <a download target='_blank' href="/sandip-resume.pdf"><Button disableElevation className={classes.button} variant='contained'>res.send(<span className={classes.boldtext}>resume</span>)</Button></a>
+        <a className='link' download target='_blank' href="/sandip-resume.pdf"><Button disableElevation className={classes.button} variant='contained'>res.send(<span className={classes.boldtext}>resume</span>)</Button></a>
     )
 
 }
