@@ -52,9 +52,6 @@ const ContactScreen = () => {
                     fontSize:29
                 }
             },
-            formContainer: {
-                paddingRight: 0
-            },
             switchVisibility:{
                 display: 'none',
                 [theme.breakpoints.up('md')]:{
@@ -143,14 +140,14 @@ const ContactScreen = () => {
       const theme = localStorage.getItem('theme');
     return (
         <div className={darkMode || theme === 'dark' ? classes.rootDark : classes.root}>
-            <Grid container spacing={3}>
+            <Grid container spacing={0}>
                 <Grid className={classes.switchVisibility} item container xs={12} md={5}>
                     <Container maxWidth='xs'>
                             <img className={classes.photo} src="/images/about-us.png" alt="VectorImage" />
                     </Container>
                 </Grid>
                 <Grid item container xs={12} md={7}>
-                    <Container className={classes.formContainer} maxWidth='md' >
+                    <Container maxWidth='md' >
                         <Box>
                             <p className={classes.contact}>Contact Me</p>
                             <p className={classes.desc}>Let's Turn your Idea into an Outstanding Product</p>

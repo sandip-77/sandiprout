@@ -107,7 +107,7 @@ const HomeScreen = () => {
 
     return (
         <div className={ darkMode ? classes.rootDark : classes.root }>
-            <Grid container spacing={3}>
+            <Grid container spacing={0}>
                 <Grid className={classes.item1} alignItems='center'  container item xs={12} sm={6}>
                     <Container maxWidth="xs">
                         <Box>
