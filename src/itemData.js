@@ -23,6 +23,12 @@ const itemData = [
         link:"https://sandip-77.github.io/Timeza-landing-page/"
     },
     {
+        img:'/projects-img/readn.png',
+        title: 'Blog',
+        link:'www.readn.org',
+        featured: true,
+    },
+    {
         img:'/projects-img/quote.png',
         title: 'Quote Generator',
         link:'https://sandip-77.github.io/Quote-Generator/'
@@ -40,11 +46,7 @@ const itemData = [
         title: 'CountDown',
         link: "https://sandip-77.github.io/countdown/"
     },
-    {
-        img:'/projects-img/readn.png',
-        title: 'Blog',
-        link:'www.readn.org'
-    }
+    
 
 ]
 
