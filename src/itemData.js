@@ -1,5 +1,12 @@
 
 const itemData = [
+    
+    {
+        img:'/projects-img/readn.png',
+        title: 'Blog',
+        link:'www.readn.org',
+        featured: true,
+    },
     {
         img:'/projects-img/ecom.png',
         title: 'Ecommerce',
@@ -22,12 +29,7 @@ const itemData = [
         featured: true,
         link:"https://sandip-77.github.io/Timeza-landing-page/"
     },
-    {
-        img:'/projects-img/readn.png',
-        title: 'Blog',
-        link:'www.readn.org',
-        featured: true,
-    },
+    
     {
         img:'/projects-img/quote.png',
         title: 'Quote Generator',
