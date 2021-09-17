@@ -4,7 +4,7 @@ const itemData = [
     {
         img:'/projects-img/readn.png',
         title: 'Blog',
-        link:'www.readn.org',
+        link:'https://www.readn.org',
         featured: true,
     },
     {
